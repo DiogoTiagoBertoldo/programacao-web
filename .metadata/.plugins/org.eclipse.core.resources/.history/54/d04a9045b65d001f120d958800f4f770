@@ -1,0 +1,35 @@
+package poo.modelo.acesso;
+
+import java.util.Set;
+
+import poo.modelo.loja.Usuario;
+
+public class UsuarioADM extends Usuario {
+
+	private Set<Perfil> perfis;
+	
+	public UsuarioADM(int id, String nome, String email, String senha) {
+		super(id, nome, email, senha);
+	}
+
+	public UsuarioADM(int id, String nome, String email, String senha, Set<Perfil> perfis) {
+		super(id, nome, email, senha);
+		this.perfis = perfis;
+	}
+
+	public Set<Perfil> getPerfis() {
+		return perfis;
+	}
+
+	public void setPerfis(Set<Perfil> perfis) {
+		this.perfis = perfis;
+	}
+
+	public void addPerfil(Perfil perfil) throws NullPointerException {
+		perfis.add(perfil);
+	}
+	
+	public void removePerfil(Perfil perfil) throws NullPointerException {
+		perfis.remove(perfil);
+	}
+}

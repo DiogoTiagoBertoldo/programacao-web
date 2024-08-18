@@ -33,11 +33,11 @@ public class Cliente extends Usuario {
 		this.dataNascimento = dataNascimento;
 	}
 	
-	public void addCompra(Compra compra) {
+	public void addCompra(Compra compra) throws NullPointerException {
 		compras.add(compra);
 	}
 	
-	public void removeCompra(Compra compra) throws UnsupportedOperationException {
+	public void removeCompra(Compra compra) throws NullPointerException {
 		compras.remove(compra);
 	}
 	

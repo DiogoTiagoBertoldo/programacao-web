@@ -11,9 +11,10 @@ public class Compra {
 	private double valorFrete;
 	
 	private Cliente cliente;
-	private ItensComprados produtosComprados;
+	private Set<ItensComprados> produtosComprados;
 	
-	public Compra(int id, boolean concluida, Date dataCompra, double valorFrete, Cliente cliente, ItensComprados produtosComprados) {
+	public Compra(int id, boolean concluida, Date dataCompra, double valorFrete, Cliente cliente,
+			Set<ItensComprados> produtosComprados) {
 		this.id = id;
 		this.concluida = concluida;
 		this.dataCompra = dataCompra;
@@ -62,11 +63,11 @@ public class Compra {
 		this.cliente = cliente;
 	}
 
-	public ItensComprados getProdutosComprados() {
+	public Set<ItensComprados> getProdutosComprados() {
 		return produtosComprados;
 	}
 
-	public void setProdutosComprados(ItensComprados produtosComprados) {
+	public void setProdutosComprados(Set<ItensComprados> produtosComprados) {
 		this.produtosComprados = produtosComprados;
 	}
 }

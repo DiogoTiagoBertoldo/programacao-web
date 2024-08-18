@@ -3,22 +3,25 @@ package poo.modelo.loja;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Secao {
+public class ItensComprados {
 	
 	private int id;
-	private String nome;
+	private int quantidade;
 	private List<Produto> produtos;
+	private Compra compra;
 	
-	public Secao(int id, String nome) {
+	public ItensComprados(int id, int quantidade, Compra compra) {
 		this.id = id;
-		this.nome = nome;
+		this.quantidade = quantidade;
 		this.produtos = new ArrayList<>();
+		this.compra = compra;
 	}
-
-	public Secao(int id, String nome, List<Produto> produtos) {
+	
+	public ItensComprados(int id, int quantidade, List<Produto> produtos, Compra compra) {
 		this.id = id;
-		this.nome = nome;
+		this.quantidade = quantidade;
 		this.produtos = produtos;
+		this.compra = compra;
 	}
 
 	public int getId() {
@@ -29,12 +32,12 @@ public class Secao {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public int getQuantidade() {
+		return quantidade;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
 	}
 	
 	public void addProduto(Produto produto) {
@@ -44,10 +47,6 @@ public class Secao {
 	public void removeProduto(Produto produto) throws UnsupportedOperationException {
 		produtos.remove(produto);
 	}
-	
-	public Produto getProduto(int index) throws IndexOutOfBoundsException {
-		return produtos.get(index);
-	}
 
 	public List<Produto> getProdutos() {
 		return produtos;
@@ -55,5 +54,13 @@ public class Secao {
 
 	public void setProdutos(List<Produto> produtos) {
 		this.produtos = produtos;
+	}
+
+	public Compra getCompra() {
+		return compra;
+	}
+
+	public void setCompra(Compra compra) {
+		this.compra = compra;
 	}
 }

@@ -1,6 +1,5 @@
 package poo.modelo.loja;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ItensComprados {
@@ -9,13 +8,6 @@ public class ItensComprados {
 	private int quantidade;
 	private List<Produto> produtos;
 	private Compra compra;
-	
-	public ItensComprados(int id, int quantidade, Compra compra) {
-		this.id = id;
-		this.quantidade = quantidade;
-		this.produtos = new ArrayList<>();
-		this.compra = compra;
-	}
 	
 	public ItensComprados(int id, int quantidade, List<Produto> produtos, Compra compra) {
 		this.id = id;
@@ -38,18 +30,6 @@ public class ItensComprados {
 
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
-	}
-	
-	public void addProduto(Produto produto) {
-		produtos.add(produto);
-	}
-	
-	public void removeProduto(Produto produto) throws UnsupportedOperationException {
-		produtos.remove(produto);
-	}
-	
-	public Produto getProduto(int index) throws IndexOutOfBoundsException {
-		return produtos.get(index);
 	}
 
 	public List<Produto> getProdutos() {

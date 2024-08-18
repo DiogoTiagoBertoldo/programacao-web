@@ -2,6 +2,7 @@ package poo.modelo.acesso;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import poo.modelo.loja.Usuario;
 
@@ -31,11 +32,11 @@ public class UsuarioADM extends Usuario {
 		return perfis.get(index);
 	}
 
-	public void addPerfil(Perfil perfil) {
+	public void addPerfil(Perfil perfil) throws NullPointerException {
 		perfis.add(perfil);
 	}
 	
-	public void removePerfil(Perfil perfil) throws UnsupportedOperationException {
+	public void removePerfil(Perfil perfil) throws NullPointerException {
 		perfis.remove(perfil);
 	}
 }

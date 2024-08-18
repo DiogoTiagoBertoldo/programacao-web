@@ -1,15 +1,10 @@
 package poo.modelo.loja;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Vitrine {
 	
 	private List<ItensVitrine> produtosVitrine;
-	
-	public Vitrine() {
-		produtosVitrine = new ArrayList<>();
-	}
 	
 	public Vitrine(List<ItensVitrine> produtosVitrine) {
 		this.produtosVitrine = produtosVitrine;
@@ -27,11 +22,7 @@ public class Vitrine {
 		produtosVitrine.add(produto);
 	}
 	
-	public void removeProduto(ItensVitrine produto) throws UnsupportedOperationException {
+	public void removeProduto(ItensVitrine produto) {
 		produtosVitrine.remove(produto);
-	}
-	
-	public ItensVitrine getProduto(int index) throws IndexOutOfBoundsException {
-		return produtosVitrine.get(index);
 	}
 }

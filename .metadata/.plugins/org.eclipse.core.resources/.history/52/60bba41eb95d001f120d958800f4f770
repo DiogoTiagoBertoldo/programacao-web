@@ -36,18 +36,6 @@ public class Secao {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
-	public void addProduto(Produto produto) {
-		produtos.add(produto);
-	}
-	
-	public void removeProduto(Produto produto) throws UnsupportedOperationException {
-		produtos.remove(produto);
-	}
-	
-	public Produto getProduto(int index) throws IndexOutOfBoundsException {
-		return produtos.get(index);
-	}
 
 	public List<Produto> getProdutos() {
 		return produtos;

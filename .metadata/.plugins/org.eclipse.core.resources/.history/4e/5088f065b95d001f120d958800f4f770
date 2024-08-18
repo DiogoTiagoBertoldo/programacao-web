@@ -30,8 +30,4 @@ public class Vitrine {
 	public void removeProduto(ItensVitrine produto) throws UnsupportedOperationException {
 		produtosVitrine.remove(produto);
 	}
-	
-	public ItensVitrine getProduto(int index) throws IndexOutOfBoundsException {
-		return produtosVitrine.get(index);
-	}
 }

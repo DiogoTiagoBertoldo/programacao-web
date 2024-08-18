@@ -33,7 +33,7 @@ public class Cliente extends Usuario {
 		this.dataNascimento = dataNascimento;
 	}
 	
-	public void addCompra(Compra compra) {
+	public void addCompra(Compra compra) throws UnsupportedOperationException {
 		compras.add(compra);
 	}
 	

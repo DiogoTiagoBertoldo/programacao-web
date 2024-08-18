@@ -37,7 +37,7 @@ public class Cliente extends Usuario {
 		compras.add(compra);
 	}
 	
-	public void removeCompra(Compra compra) throws UnsupportedOperationException {
+	public void removeCompra(Compra compra) {
 		compras.remove(compra);
 	}
 	

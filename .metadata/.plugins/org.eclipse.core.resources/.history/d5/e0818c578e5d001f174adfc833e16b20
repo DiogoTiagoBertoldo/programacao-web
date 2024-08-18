@@ -1,0 +1,21 @@
+package poo.modelo.acesso;
+
+import poo.modelo.loja.Usuario;
+
+public class UsuarioADM extends Usuario {
+
+	private Perfil perfil;
+
+	public UsuarioADM(int id, String nome, String email, String senha, Perfil perfil) {
+		super(id, nome, email, senha);
+		this.perfil = perfil;
+	}
+
+	public Perfil getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(Perfil perfil) {
+		this.perfil = perfil;
+	}
+}

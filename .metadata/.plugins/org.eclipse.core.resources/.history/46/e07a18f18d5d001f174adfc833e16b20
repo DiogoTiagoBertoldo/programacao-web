@@ -1,0 +1,10 @@
+package poo.modelo.acesso;
+
+import poo.modelo.loja.Usuario;
+
+public class UsuarioADM extends Usuario {
+
+	public UsuarioADM(int id, String nome, String email, String senha) {
+		super(id, nome, email, senha);
+	}
+}

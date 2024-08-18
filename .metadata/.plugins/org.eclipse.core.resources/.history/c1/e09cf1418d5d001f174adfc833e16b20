@@ -1,0 +1,7 @@
+package poo.modelo.loja;
+
+public class Compra {
+	
+	private Cliente cliente;
+	
+}

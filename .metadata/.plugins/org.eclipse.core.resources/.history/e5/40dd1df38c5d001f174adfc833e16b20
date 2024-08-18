@@ -1,0 +1,40 @@
+package poo.modelo.loja;
+
+import java.util.Set;
+
+public class ItensComprados {
+	
+	private int id;
+	private int quantidade;
+	private Set<Produto> produtos;
+	
+	public ItensComprados(int id, int quantidade, Set<Produto> produtos) {
+		this.id = id;
+		this.quantidade = quantidade;
+		this.produtos = produtos;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
+
+	public Set<Produto> getProdutos() {
+		return produtos;
+	}
+
+	public void setProdutos(Set<Produto> produtos) {
+		this.produtos = produtos;
+	}
+}

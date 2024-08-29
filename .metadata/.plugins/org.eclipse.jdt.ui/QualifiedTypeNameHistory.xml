@@ -5,4 +5,6 @@
     <fullyQualifiedTypeName name="java.lang.UnsupportedOperationException"/>
     <fullyQualifiedTypeName name="poo.modelo.loja.Produto"/>
     <fullyQualifiedTypeName name="java.lang.IndexOutOfBoundsException"/>
+    <fullyQualifiedTypeName name="com.entities.Julgamento"/>
+    <fullyQualifiedTypeName name="com.entities.FichaInscricao"/>
 </qualifiedTypeNameHistroy>

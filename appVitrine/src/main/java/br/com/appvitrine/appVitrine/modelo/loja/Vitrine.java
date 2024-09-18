@@ -17,9 +17,10 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import jakarta.persistence.Transient;
 
 @Entity
-@Table(name = "VITRINES")
+@Table(name = "Vitrine")
 public class Vitrine implements Serializable {
 	@Serial
 	private static final long serialVersionUID = 1L;
@@ -31,7 +32,8 @@ public class Vitrine implements Serializable {
 	private Date dataInicio;
 	@Temporal(TemporalType.DATE)
 	private Date dataFim;
-	@OneToMany(mappedBy = "VITRINES", cascade = CascadeType.ALL)
+	//@OneToMany(mappedBy = "VITRINES", cascade = CascadeType.ALL)
+	@Transient
 	private List<ItensVitrine> itensVitrine;
 
 	public Vitrine() {}

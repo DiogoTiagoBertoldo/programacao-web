@@ -10,13 +10,13 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "PERFIS.ADMS")
+@Table(name = "UsuarioAdm")
 public class UsuarioADM extends Usuario implements Serializable {
 	@Serial
 	private static final long serialVersionUID = 1L;
 	
 	@ManyToOne
-	@JoinColumn(name = "PERFIS")
+	@JoinColumn(name = "id_perfil")
 	private Perfil perfil;
 
     public UsuarioADM() {}

@@ -13,9 +13,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 
 @Entity
-@Table(name = "SECOES")
+@Table(name = "Secao")
 public class Secao implements Serializable {
 	@Serial
 	private static final long serialVersionUID = 1L;
@@ -23,9 +24,10 @@ public class Secao implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID id;
-	@Column(length = 40)
+	@Column(nullable = false, length = 40)
 	private String nome;
-	@OneToMany(mappedBy = "SECOES", cascade = CascadeType.ALL)
+	//@OneToMany(mappedBy = "secao", cascade = CascadeType.ALL)
+	@Transient
 	private List<Produto> produtos;
 
 	public Secao() {}

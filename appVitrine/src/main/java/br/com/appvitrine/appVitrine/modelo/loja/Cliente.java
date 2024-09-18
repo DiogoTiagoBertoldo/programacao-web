@@ -15,16 +15,18 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import jakarta.persistence.Transient;
 
 @Entity
-@Table(name = "CLIENTES")
+@Table(name = "UsuarioCliente")
 public class Cliente extends Usuario implements Serializable {
 	@Serial
 	private static final long serialVersionUID = 1L;
 	
 	@Temporal(TemporalType.DATE)
 	private Date dataNascimento;
-	@OneToMany(mappedBy = "CLIENTES", cascade = CascadeType.ALL)
+	//@OneToMany(mappedBy = "CLIENTES", cascade = CascadeType.ALL)
+	@Transient
 	private List<Compra> historicoCompras;
 
 	public int calcularIdade() {

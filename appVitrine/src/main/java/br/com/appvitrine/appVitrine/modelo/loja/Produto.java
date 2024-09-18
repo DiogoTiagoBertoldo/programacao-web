@@ -16,9 +16,10 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 
 @Entity
-@Table(name = "PRODUTOS")
+@Table(name = "Produto")
 public class Produto implements Serializable {
 	@Serial
 	private static final long serialVersionUID = 1L;
@@ -26,23 +27,25 @@ public class Produto implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID id;
-	@Column(length = 40)
+	@Column(nullable = false, length = 40)
 	private String nome;
-	@Column(length = 100)
+	@Column(nullable = false, length = 100)
 	private String descricao;
 	@Column(columnDefinition = "DECIMAL(5,2)")
 	private BigDecimal valor;
-	@Column(length = 5)
+	@Column(nullable = false, length = 5)
 	private int qtdeEstoque;
-	@Column(length = 1)
+	@Column(nullable = false, length = 1)
 	private int estoqueMinimo;
 	//private String imagem; // Isso seria uma URL?
 	@ManyToOne
-	@JoinColumn(name = "SECOES")
+	@JoinColumn(name = "id_secao")
 	private Secao secao;
-	@OneToMany(mappedBy = "PRODUTOS", cascade = CascadeType.ALL)
+	//@OneToMany(mappedBy = "PRODUTOS", cascade = CascadeType.ALL)
+	@Transient
 	private List<ItensVitrine> listaVitrines;
-	@OneToMany(mappedBy = "PRODUTOS", cascade = CascadeType.ALL)
+	//@OneToMany(mappedBy = "PRODUTOS", cascade = CascadeType.ALL)
+	@Transient
 	private List<ItensComprados> listaCompras;
 
 	public Produto() {}

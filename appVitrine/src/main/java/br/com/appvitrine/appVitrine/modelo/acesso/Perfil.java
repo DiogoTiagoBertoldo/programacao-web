@@ -14,9 +14,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 
 @Entity
-@Table(name = "PERFIS")
+@Table(name = "Perfil")
 public class Perfil implements Serializable {
 	@Serial
 	private static final long serialVersionUID = 1L;
@@ -24,9 +25,10 @@ public class Perfil implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID id;
-	@Column(length = 100)
+	@Column(nullable = false, length = 100)
     private String descricao;
-	@OneToMany(mappedBy = "PERFIS", cascade = CascadeType.ALL)
+	//@OneToMany(mappedBy = "PERFIS", cascade = CascadeType.ALL)
+	@Transient
     private List<UsuarioADM> usuarios;
 
     public Perfil() {}

@@ -21,7 +21,7 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name = "COMPRAS")
+@Table(name = "compra")
 public class Compra implements Serializable {
 	@Serial
 	private static final long serialVersionUID = 1L;
@@ -29,17 +29,17 @@ public class Compra implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID id;
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataCompra;
 	@Column(columnDefinition = "DECIMAL(5,2)")
 	private BigDecimal valorFrete;
-	@OneToMany(mappedBy = "COMPRAS", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "compras", cascade = CascadeType.ALL)
 	private List<ItensComprados> itensComprados;
 	@ManyToOne
-	@JoinColumn(name = "CLIENTES")
+	@JoinColumn(name = "id_cliente")
 	private Cliente cliente;
-
-	//private boolean concluida; // usaria um bit- smallint?
+	@Column
+	private boolean concluida;
 
 	public double calcularValorFinal() {
 		double total = 0.0;
@@ -57,13 +57,13 @@ public class Compra implements Serializable {
 		return id;
 	}
 
-//	public boolean isConcluida() {
-//		return concluida;
-//	}
-//
-//	public void setConcluida(boolean concluida) {
-//		this.concluida = concluida;
-//	}
+	public boolean isConcluida() {
+		return concluida;
+	}
+
+	public void setConcluida(boolean concluida) {
+		this.concluida = concluida;
+	}
 
 	public Date getDataCompra() {
 		return dataCompra;

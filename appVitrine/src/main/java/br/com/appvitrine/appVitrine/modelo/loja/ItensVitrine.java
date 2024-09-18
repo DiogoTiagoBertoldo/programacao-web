@@ -14,7 +14,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "VITRINES.ITENS")
+@Table(name = "ItensVitrine")
 public class ItensVitrine implements Serializable {
 	@Serial
 	private static final long serialVersionUID = 1L;
@@ -22,13 +22,13 @@ public class ItensVitrine implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID id;
-	@Column(length = 5)
+	@Column(nullable = false, length = 5)
 	private int qtdeDisponivel;
 	@ManyToOne
-	@JoinColumn(name = "PRODUTOS")
+	@JoinColumn(nullable = false, name = "id_produto")
 	private Produto produto;
 	@ManyToOne
-	@JoinColumn(name = "VITRINES")
+	@JoinColumn(name = "id_vitrine")
 	private Vitrine vitrine;
 
 	public ItensVitrine() {}

@@ -15,7 +15,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "COMPRAS.ITENS")
+@Table(name = "ItensComprados")
 public class ItensComprados implements Serializable {
 	@Serial
 	private static final long serialVersionUID = 1L;
@@ -23,15 +23,15 @@ public class ItensComprados implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID id;
-	@Column(length = 4)
+	@Column(nullable = false, length = 4)
 	private int quantidade;
 	@Column(columnDefinition = "DECIMAL(7,2)")
 	private BigDecimal valor;
 	@ManyToOne
-	@JoinColumn(name = "COMPRAS")
+	@JoinColumn(name = "id_compra")
 	private Compra compra;
 	@ManyToOne
-	@JoinColumn(name = "PRODUTOS")
+	@JoinColumn(name = "id_produto")
 	private Produto produto;
 
 	public ItensComprados() {}

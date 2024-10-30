@@ -1,5 +1,7 @@
 package br.com.appvitrine.appVitrine.modelo.loja;
 
+import static jakarta.persistence.TemporalType.DATE;
+
 import java.io.Serial;
 import java.io.Serializable;
 import java.text.ParseException;
@@ -9,12 +11,9 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 import jakarta.persistence.Transient;
 
 @Entity
@@ -23,9 +22,9 @@ public class Cliente extends Usuario implements Serializable {
 	@Serial
 	private static final long serialVersionUID = 1L;
 	
-	@Temporal(TemporalType.DATE)
+	@Temporal(DATE)
 	private Date dataNascimento;
-	//@OneToMany(mappedBy = "CLIENTES", cascade = CascadeType.ALL)
+	//@OneToMany(mappedBy = "usuario_cliente", cascade = CascadeType.ALL)
 	@Transient
 	private List<Compra> historicoCompras;
 

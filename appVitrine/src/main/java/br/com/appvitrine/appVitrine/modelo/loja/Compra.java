@@ -1,5 +1,9 @@
 package br.com.appvitrine.appVitrine.modelo.loja;
 
+import static jakarta.persistence.CascadeType.ALL;
+import static jakarta.persistence.GenerationType.AUTO;
+import static jakarta.persistence.TemporalType.TIMESTAMP;
+
 import java.io.Serial;
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -7,18 +11,15 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 
 @Entity
 @Table(name = "compra")
@@ -27,13 +28,13 @@ public class Compra implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = AUTO)
 	private UUID id;
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TIMESTAMP)
 	private Date dataCompra;
 	@Column(columnDefinition = "DECIMAL(5,2)")
 	private BigDecimal valorFrete;
-	@OneToMany(mappedBy = "compras", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "compra", cascade = ALL)
 	private List<ItensComprados> itensComprados;
 	@ManyToOne
 	@JoinColumn(name = "id_cliente")

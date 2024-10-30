@@ -1,17 +1,16 @@
 package br.com.appvitrine.appVitrine.modelo.loja;
 
+import static jakarta.persistence.GenerationType.AUTO;
+
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 
@@ -22,7 +21,7 @@ public class Secao implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = AUTO)
 	private UUID id;
 	@Column(nullable = false, length = 40)
 	private String nome;

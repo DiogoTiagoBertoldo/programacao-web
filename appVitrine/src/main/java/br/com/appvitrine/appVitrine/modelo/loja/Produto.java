@@ -1,20 +1,19 @@
 package br.com.appvitrine.appVitrine.modelo.loja;
 
+import static jakarta.persistence.GenerationType.AUTO;
+
 import java.io.Serial;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 
@@ -25,26 +24,27 @@ public class Produto implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = AUTO)
 	private UUID id;
 	@Column(nullable = false, length = 40)
 	private String nome;
 	@Column(nullable = false, length = 100)
 	private String descricao;
-	@Column(columnDefinition = "DECIMAL(5,2)")
+	@Column(columnDefinition = "DECIMAL(7,2)")
 	private BigDecimal valor;
 	@Column(nullable = false, length = 5)
 	private int qtdeEstoque;
 	@Column(nullable = false, length = 1)
 	private int estoqueMinimo;
-	//private String imagem; // Isso seria uma URL?
+	@Column(length = 50)
+	private String imagem;
 	@ManyToOne
 	@JoinColumn(name = "id_secao")
 	private Secao secao;
-	//@OneToMany(mappedBy = "PRODUTOS", cascade = CascadeType.ALL)
+	//@OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
 	@Transient
 	private List<ItensVitrine> listaVitrines;
-	//@OneToMany(mappedBy = "PRODUTOS", cascade = CascadeType.ALL)
+	//@OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
 	@Transient
 	private List<ItensComprados> listaCompras;
 

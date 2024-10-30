@@ -72,7 +72,7 @@ function excluir(id) {
     escreverLoadAction();
     $.ajax({
         type: "DELETE",
-        url: urlProdutos+ "/" + id,
+        url: urlProdutos + "/" + id,
         success: function() {
             exibirMensagem("Produto " + id + " excluído.");
         },

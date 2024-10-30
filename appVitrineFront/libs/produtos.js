@@ -74,7 +74,7 @@ function excluir(id) {
         type: "DELETE",
         url: urlProdutos + "/" + id,
         success: function() {
-            exibirMensagem("Produto " + id + " excluído.");
+            exibirMensagem("Item " + id + " excluído.");
         },
         complete: function() {
             removerLoadAction();

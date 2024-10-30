@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vitrine - Produtos</title>
+    <title>Vitrine - Perfil</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Sixtyfour+Convergence&display=swap');
     </style>
@@ -16,7 +16,7 @@
     <script src="libs/materialize.min.js"></script>
     <script src="libs/jquery-ui.min.js"></script>
     <script src="libs/jquery.mask.js"></script>
-    <script src="libs/produtos.js"></script>
+    <script src="libs/perfil.js"></script>
     <script src="libs/app.js"></script>
 </head>
 
@@ -26,39 +26,15 @@
     <container>
         <div class="row">
             <div class="col s12">
-                <h4> Formulário de Manutenção de Produto</h4>
+                <h4> Formulário de Manutenção de Perfis</h4>
             </div> 
         </div>
-        <form id="frmProduto">
+        <form id="frmPerfil">
             <input type="hidden" name="id" id="id"/>
              <div class="row">
-                <div class="col s12 l6 input-field">
-                    <input type="text" name="nome" id="nome"/>
-                    <label for="nome">Nome do Produto:</label>
-                </div>
-                <div class="col s12 l6 input-field">
+                <div class="col s12 l12 input-field">
                     <input type="text" name="descricao" id="descricao"/>
-                    <label for="descricao">Descrição do Produto:</label>
-                </div>
-             </div>
-             <div class="row">
-                <div class="col s12 l4 input-field">
-                    <input type="number" name="valor" id="valor"/>
-                    <label for="valor">Valor R$:</label>
-                </div>
-                <div class="col s12 l4 input-field">
-                    <input type="number" name="qtdeEstoque" id="qtdeEstoque"/>
-                    <label for="qtdeEstoque">Estoque Atual:</label>
-                </div>
-                <div class="col s12 l4 input-field">
-                    <input type="number" name="estoqueMinimo" id="estoqueMinimo"/>
-                    <label for="estoqueMinimo">Estoque Mínimo:</label>
-                </div>
-             </div>
-             <div class="row">
-                <div class="col s12 l6 input-field">
-                    <input type="text" name="imagem" id="imagem"/>
-                    <label for="imagem">URL Imagem</label>
+                    <label for="descricao">Descrição do Perfil:</label>
                 </div>
                 <div class="col s12 l4">
                     <label class="blue-text text-darken-3 clique">
@@ -70,7 +46,7 @@
                 </div>
             </div>
         </form>
-        <div class="p-top-3" id="listaProdutos"></div>
+        <div class="p-top-3" id="listaPerfis"></div>
     </container>
 
     <div id="dialog" title="ATENÇÃO!" style="display: none">

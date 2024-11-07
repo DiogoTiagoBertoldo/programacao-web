@@ -1,27 +1,32 @@
-var urlPerfil = "http://localhost:8090/perfil";
+var urlVitrine = "http://localhost:8090/vitrines";
 
 $(document).ready(function() {
-    pesquisarPerfis();
+    pesquisarVitrines();
 })
 
-function pesquisarPerfis() {
+function pesquisarVitrines() {
     escreverLoadAction();
-    $.get(urlPerfil, function (json, status) {
-        $("#listaPerfis").html(escreverTabelaPerfil(json));
+    $.get(urlVitrine, function (json, status) {
+        $("#listaVitrines").html(escreverTabelaVitrine(json));
         removerLoadAction();
     })
 }
 
-function escreverTabelaPerfil(json) {
+function escreverTabelaVitrine(json) {
     var html = "";
+    html += '<br>';
     html += '<div class="row">';
-    html += '<div class="col s6 l10"><label>Descrição</label></div>';
+    html += '<div class="col s6 l4"><label>ID</label></div>';
+    html += '<div class="col s6 l3"><label>Data de Início</label></div>';
+    html += '<div class="col s6 l3"><label>Data de Finalização</label></div>';
     html += '<div class="col s6 l1"><label>Editar</label></div>';
     html += '<div class="col s6 l1"><label>Excluir</label></div>';
     html += '</div>';
     for (var i = 0; i < json.length; i++) {
         html += '<div class="row">';
-        html += '<div class="col s6 l10">' + json[i].descricao + '</div>';
+        html += '<div class="col s6 l4">' + json[i].id + '</div>';        
+        html += '<div class="col s6 l3">' + parseDate(json[i].dataInicio.split("-")) + '</div>';
+        html += '<div class="col s6 l3">' + parseDate(json[i].dataFim.split("-")) + '</div>';
         html += '<div class="col s6 l1">';
         html += '<i class="small material-icons blue-text text-darken-2';
         html += ' cursorPointer selectNone" ';
@@ -37,27 +42,37 @@ function escreverTabelaPerfil(json) {
     return html;
 }
 
+function parseDate(arrDate) {
+    var ano = parseInt(arrDate[0]);
+    var mes = parseInt(arrDate[1]);
+    var dia = parseInt(arrDate[2]);
+
+    return dia + '/' + mes + '/' + ano;
+}
+
 function editar(id) {
     escreverLoadAction();
-    $.get(urlPerfil + "/" + id, function (json, status) {
-        preencherFormPerfil(json);
+    $.get(urlVitrine + "/" + id, function (json, status) {
+        preencherFromVitrine(json);
         removerLoadAction();
     })
 }
 
-function preencherFormPerfil(json) {
+function preencherFromVitrine(json) {
     $("#id").val(json.id);
-    $("#descricao").val(json.descricao);
-    $("#descricao").focus();
+    $("#dataInicio").val(json.dataInicio);
+    $("#dataInicio").focus();
+    $("#dataFim").val(json.dataFim);
+    $("#dataFim").focus();
 }
 
 function excluir(id) {
     escreverLoadAction();
     $.ajax({
         type: "DELETE",
-        url: urlPerfil + "/" + id,
+        url: urlVitrine + "/" + id,
         success: function() {
-            exibirMensagem("Perfil " + id + " excluído.");
+            exibirMensagem("Vitrine " + id + " excluída.");
         },
         complete: function() {
             removerLoadAction();
@@ -70,19 +85,15 @@ function excluir(id) {
 function salvar() {
     escreverLoadAction();
     var tipo ="POST";
-    var url = urlPerfil;
-    if($("#id").val().length >3){
+    var url = urlVitrine;
+    if($("#id").val().length > 3) {
         tipo = "PUT";
-        url = urlPerfil+"/"+$("#id").val();
+        url = urlVitrine+"/"+$("#id").val();
     }
    
     var dados = JSON.stringify({
-        "nome":$("#nome").val(),
-        "descricao":$("#descricao").val(),
-        "valor":$("#valor").val(),
-        "qtdeEstoque":$("#qtdeEstoque").val(),
-        "estoqueMinimo":$("#estoqueMinimo").val(),
-        "imagem":$("#imagem").val()
+        "dataInicio":$("#dataInicio").val(),
+        "dataFim":$("#dataFim").val()
     });
 
     $.ajax({
@@ -92,7 +103,7 @@ function salvar() {
         contentType: 'application/json',
         success: function (dados) {
             location.reload();
-            pesquisarPerfis();
+            pesquisarVitrines();
         },
         complete: function () {
             removerLoadAction();

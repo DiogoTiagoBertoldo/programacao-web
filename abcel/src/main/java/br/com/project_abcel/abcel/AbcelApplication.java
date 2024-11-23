@@ -1,4 +1,4 @@
-package br.com.abcel.abcel;
+package br.com.project_abcel.abcel;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

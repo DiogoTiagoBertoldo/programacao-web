@@ -1,4 +1,4 @@
-package br.com.abcel.abcel;
+package br.com.project_abcel.abcel;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

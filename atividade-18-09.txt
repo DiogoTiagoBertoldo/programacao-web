@@ -1,3 +1,0 @@
-Mudanças feitas, no git estará atualizado.
-
-Aas únicas mudanças foram apenas o @Transient, as classe com Herança e os padrões dos nomes, o restante estava tudo igual.

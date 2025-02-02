@@ -1,3 +1,0 @@
-Grupo: Diogo Tiago Bertoldo, Anna Laura Amorim Silva, Guilherme Pereira Leme
-
-**Tudo foi feito na IDE Eclipse, caso tenha algum problema de compatibilidade

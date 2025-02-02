@@ -27,8 +27,8 @@ public class Farmer extends Person implements Serializable, GenericListMethods<P
 	private String city;
 	@Column(length = 30, nullable = false)
 	private String neighborhood;
-	@Column(length = 12, nullable = false)
-	private int phone;
+	@Column(length = 13, nullable = false)
+	private long phone;
 
 	@OneToMany(fetch = LAZY, mappedBy = "farmer", cascade = ALL, orphanRemoval = true)
 	@JsonManagedReference
@@ -67,11 +67,11 @@ public class Farmer extends Person implements Serializable, GenericListMethods<P
 		this.neighborhood = neighborhood;
 	}
 
-	public int getPhone() {
+	public long getPhone() {
 		return phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(long phone) {
 		this.phone = phone;
 	}
 

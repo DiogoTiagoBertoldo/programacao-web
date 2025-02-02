@@ -9,12 +9,14 @@ import java.util.UUID;
 
 import br.com.project_abcel.abcel.access.utils.SetGenericInheritance;
 import br.com.project_abcel.abcel.entities.persons.Farmer;
+import br.com.project_abcel.abcel.entities.products.Product;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 
@@ -28,7 +30,7 @@ public class Registration implements Serializable, SetGenericInheritance<Farmer>
 	@GeneratedValue(strategy = AUTO)
 	private UUID id;
 	@Column(nullable = false)
-	private Registration product;
+	private Product product;
 	@ManyToOne
 	@JoinColumn(name = "farmer_id")
 	private Farmer farmer;
@@ -54,11 +56,11 @@ public class Registration implements Serializable, SetGenericInheritance<Farmer>
 		this.id = id;
 	}
 
-	public Registration getProduct() {
+	public Product getProduct() {
 		return product;
 	}
 
-	public void setProduct(Registration product) {
+	public void setProduct(Product product) {
 		this.product = product;
 	}
 

@@ -26,7 +26,7 @@ public class FarmerController {
 	@Autowired
 	private FarmerRepository r;
 
-	@PostMapping("/farmer")
+	@PostMapping("/farmers")
 	public ResponseEntity<Object> addFarmer(@RequestBody FarmerDTO dto) {
 		return new PostService<Farmer, FarmerDTO>(Farmer.class).post(dto, r);
 	}

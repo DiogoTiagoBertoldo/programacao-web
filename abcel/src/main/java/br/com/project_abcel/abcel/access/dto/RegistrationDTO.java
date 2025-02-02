@@ -4,6 +4,6 @@ import java.util.UUID;
 
 import jakarta.validation.constraints.NotNull;
 
-public record RegistrationDTO(@NotNull UUID product, UUID Farmer) {
+public record RegistrationDTO(@NotNull UUID product) {
 
 }

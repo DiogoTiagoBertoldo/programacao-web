@@ -10,6 +10,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.http.ResponseEntity;
 
 import br.com.project_abcel.abcel.access.utils.ClassInstanceHelper;
+import br.com.project_abcel.abcel.access.utils.REB;
 
 public class PostService<T, D> {
 	private Class<T> type;
@@ -22,9 +23,9 @@ public class PostService<T, D> {
 		try (var cih = new ClassInstanceHelper<T>(type)) {
 			var obj = cih.createInstance();
 			BeanUtils.copyProperties(objDto, obj);
-			return ResponseEntity.status(OK).body(r.save(obj));
+			return new REB(OK, r.save(obj)).build();
 		} catch (Exception e) {
-			return ResponseEntity.status(INTERNAL_SERVER_ERROR).body(e);
+			return new REB(INTERNAL_SERVER_ERROR, e.fillInStackTrace()).build();
 		}
 	}
 }
